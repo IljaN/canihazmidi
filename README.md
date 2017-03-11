@@ -1,5 +1,5 @@
 # canihazmidi
-The aim of this project is to create a portable stand-alone device which can convert a Pro DJ Link clock to a MIDI-Clock signal thus making it possible to synchronize MIDI capable instruments with Pioneer DJ equipment.
+The aim of this project is to create a portable stand-alone adapter which can convert a Pro DJ Link clock to a MIDI-Clock signal thus making it possible to synchronize MIDI capable instruments with Pioneer DJ equipment.
 
 ## Status
 The project is currently in the concept phase. Following vaguely defined milestones need to be reached:
