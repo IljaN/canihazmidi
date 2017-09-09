@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// Midi standard commands
 const (
 	Start    = 0xfa
 	Stop     = 0xfc
@@ -82,7 +83,11 @@ func (clk *Clock) run() {
 
 }
 
+// Pulses per quarter note
+const ppqn = 24
+const usec_in_min = 6000000
+
 // Converts bpm to a 24ppqn pulse interval in microseconds
 func bpmToPulseInterval(bpm float64) time.Duration {
-	return time.Duration((6000000/(bpm/10))/24) * time.Microsecond
+	return time.Duration((usec_in_min/(bpm/10))/ppqn) * time.Microsecond
 }
