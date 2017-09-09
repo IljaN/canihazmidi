@@ -3,10 +3,11 @@ The aim of this project is to create a portable stand-alone adapter which can co
 
 ## Status
 The project is currently in the concept phase. Following vaguely defined milestones need to be reached:
-- [ ] Better name?
 - [ ] Write a prototype clock converter software on PC to learn the protocols (MIDI, Pro DJ Link)
-- [ ] Specify a suitable embedded hardware platform 
+- [x] Specify a suitable embedded hardware platform (RaspberryPi with [pisound](https://blokas.io/pisound))
 - [ ] Port the prototype software to the target platform
+
+See [Concept](https://github.com/IljaN/canihazmidi/blob/master/docs/concept.md) for more details.
 
 ## Contributing
 Feel free to join! Any input is appreciated as this is my first hardware/embedded project and I am looking forward to learn a lot in the process. 
