@@ -76,9 +76,6 @@ func (clk *Clock) run() {
 			t.SetDuration(newPulseRate * time.Microsecond)
 		case cmd := <-clk.cmd:
 			clk.dev.Write(cmd)
-		default:
-			// Without this CPU goes to 100%, find better solution
-			time.Sleep(1 * time.Millisecond)
 		}
 	}
 
