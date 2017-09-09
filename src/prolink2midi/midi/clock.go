@@ -7,10 +7,10 @@ import (
 )
 
 const (
-	START    = 0xfa
-	STOP     = 0xfc
-	TICK     = 0xf8
-	CONTINUE = 0xfb
+	Start    = 0xfa
+	Stop     = 0xfc
+	Tick     = 0xf8
+	Continue = 0xfb
 )
 
 type Clock struct {
@@ -46,22 +46,22 @@ func (clk *Clock) SetBpm(bpm float64) {
 
 // Send MIDI sequencer start event
 func (clk *Clock) Start() {
-	clk.cmd <- []byte{START}
+	clk.cmd <- []byte{Start}
 }
 
 // Send MIDI sequencer stop event
 func (clk *Clock) Stop() {
-	clk.cmd <- []byte{STOP}
+	clk.cmd <- []byte{Stop}
 }
 
 // Send MIDI sequencer stop event
 func (clk *Clock) Continue() {
-	clk.cmd <- []byte{CONTINUE}
+	clk.cmd <- []byte{Continue}
 }
 
 func (clk *Clock) run() {
 	pulseRate := bpmToPulseInterval(120)
-	tick := []byte{TICK}
+	tick := []byte{Tick}
 	var t VarTicker
 	t.SetDuration(pulseRate)
 
