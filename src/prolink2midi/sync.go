@@ -29,6 +29,7 @@ func (s *sync) sync(status *prolink.CDJStatus) {
 
 	if status.PlayState == prolink.PlayStatePlaying && status.BeatInMeasure == 1 && !s.clk.Playing {
 		s.clk.Start()
+		return
 	}
 
 	if status.PlayState == prolink.PlayStatePaused {
