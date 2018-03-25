@@ -1,9 +1,9 @@
 package main
 
 import (
-	"canihazmidi/src/prolink2midi/pkg/midi"
-	"go.evanpurkhiser.com/prolink"
+	"canihazmidi/src/prolink2midi/midi"
 	"fmt"
+	"go.evanpurkhiser.com/prolink"
 )
 
 type sync struct {

@@ -2,7 +2,7 @@ package main
 
 import (
 	"bufio"
-	"canihazmidi/src/prolink2midi/pkg/midi"
+	"canihazmidi/src/prolink2midi/midi"
 	"errors"
 	"fmt"
 	"go.evanpurkhiser.com/prolink"
@@ -10,9 +10,9 @@ import (
 	"log"
 	"os"
 	"strconv"
-	"time"
 	"strings"
 	syssync "sync"
+	"time"
 )
 
 func initApp() *cli.App {
