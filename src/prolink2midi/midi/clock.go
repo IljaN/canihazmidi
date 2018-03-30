@@ -75,24 +75,24 @@ func (clk *Clock) run() {
 	var t VarTicker
 	t.SetDuration(pulseRate)
 
-	go func() {
+	go func(cmd chan []byte, pulseRate chan time.Duration) {
 		for range t.C {
-			clk.device.Write([]byte{Tick})
-		}
-	}()
 
-	for {
-		select {
-		case newPulseRate := <-clk.pulseRate:
-			t.SetDuration(newPulseRate)
-		case cmd := <-clk.midiOut:
-			clk.device.Write(cmd)
-		}
-	}
+			select {
+			case newPulseRate := <-pulseRate:
+				t.SetDuration(newPulseRate)
+			case c := <-cmd:
+				clk.device.Write(c)
+			default:
+				clk.device.Write([]byte{Tick})
+			}
 
+		}
+	}(clk.midiOut, clk.pulseRate)
 }
 
 // Converts bpm to a 24ppqn pulse interval in microseconds
 func bpmToPulseInterval(bpm float32) time.Duration {
-	return time.Duration((uSecInMin/(bpm/10))/ppqn) * time.Microsecond
+
+	return time.Duration((uSecInMin/(bpm/10.00))/ppqn) * time.Microsecond
 }
